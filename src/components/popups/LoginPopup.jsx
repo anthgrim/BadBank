@@ -24,9 +24,7 @@ const LoginPopUp = ({ handleClose }) => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    const targetUser = user.users.find(
-      (user) => user.email === formik.values.email
-    );
+    const targetUser = user.find((user) => user.email === formik.values.email);
 
     if (!targetUser) return alert("User does not exist");
 
@@ -34,6 +32,8 @@ const LoginPopUp = ({ handleClose }) => {
     if (targetUser.password !== formik.values.password)
       return alert("Invalid credentials");
 
+    formik.resetForm();
+    handleClose();
     return alert("Logged In!");
   };
 

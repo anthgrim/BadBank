@@ -51,11 +51,16 @@ const RegisterPopUp = ({ handleClose }) => {
       name: formik.values.name,
       email: formik.values.email,
       password: formik.values.password,
+      balance: 0,
     };
 
     usersData.push(newUser);
+
+    console.log(usersData);
+
     setUser(usersData);
     formik.resetForm();
+    handleClose();
     return alert("Successful user registration");
   };
 
@@ -80,6 +85,7 @@ const RegisterPopUp = ({ handleClose }) => {
                 onChange={formik.handleChange}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.touched.name && formik.errors.name}
+                required
               />
             </Box>
 
@@ -93,6 +99,7 @@ const RegisterPopUp = ({ handleClose }) => {
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
+                required
               />
             </Box>
 
@@ -109,6 +116,7 @@ const RegisterPopUp = ({ handleClose }) => {
                   formik.touched.password && Boolean(formik.errors.password)
                 }
                 helperText={formik.touched.password && formik.errors.password}
+                required
               />
             </Box>
 
@@ -129,6 +137,7 @@ const RegisterPopUp = ({ handleClose }) => {
                   formik.touched.confirmPassword &&
                   formik.errors.confirmPassword
                 }
+                required
               />
             </Box>
 

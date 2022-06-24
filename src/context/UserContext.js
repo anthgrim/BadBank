@@ -4,7 +4,7 @@ import users from "../data/user";
 const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
-  const [user, setUser] = useState({ users });
+  const [user, setUser] = useState(users);
 
   return (
     <>

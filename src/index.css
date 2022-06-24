@@ -47,3 +47,7 @@ code {
 .custom-btn-cancel {
   background-color: rgb(71, 71, 71);
 }
+
+.clickable {
+  cursor: pointer;
+}
