@@ -23,7 +23,7 @@ code {
 
 .box {
   position: relative;
-  width: 70%;
+  width: fit-content;
   margin: 0 auto;
   height: auto;
   max-height: 70vh;
@@ -33,4 +33,17 @@ code {
   padding: 20px;
   border: 1px solid #999;
   overflow: auto;
+}
+
+.custom-input-box {
+  width: 500px;
+}
+
+.custom-btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-btn-cancel {
+  background-color: rgb(71, 71, 71);
 }

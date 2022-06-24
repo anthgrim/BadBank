@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import UserContext from "../context/UserContext";
+import useUserContext from "../hooks/useUserContext";
 
 const AllData = () => {
-  const { user } = useContext(UserContext);
+  const { user } = useUserContext();
   return (
     <>
       <h1>AllData</h1>
