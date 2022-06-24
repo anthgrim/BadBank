@@ -33,7 +33,7 @@ const RegisterPopUp = ({ handleClose }) => {
 
     onSubmit: (values) => {
       console.log(values);
-      alert("Login Succesful");
+      alert("Register Succesful");
     },
   });
 
@@ -125,7 +125,7 @@ const RegisterPopUp = ({ handleClose }) => {
                 type="submit"
                 onClick={formik.handleSubmit}
               >
-                Submit
+                Register
               </Button>
             </Box>
           </form>

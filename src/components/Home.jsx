@@ -1,11 +1,16 @@
 import { useState } from "react";
 import RegisterPopUp from "./popups/RegisterPopUp";
+import LoginPopUp from "./popups/LoginPopup";
 
 const Home = () => {
   const [isRegisterPopUp, setIsRegiterPopUp] = useState(false);
+  const [isLoginPopUp, setIsLoginPopUp] = useState(false);
 
   const toggleRegisterPopUp = () => {
     setIsRegiterPopUp(!isRegisterPopUp);
+  };
+  const toggleLoginPopUp = () => {
+    setIsLoginPopUp(!isLoginPopUp);
   };
 
   return (
@@ -19,7 +24,16 @@ const Home = () => {
       >
         Register
       </button>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={toggleLoginPopUp}
+      >
+        Login
+      </button>
+
       {isRegisterPopUp && <RegisterPopUp handleClose={toggleRegisterPopUp} />}
+      {isLoginPopUp && <LoginPopUp handleClose={toggleLoginPopUp} />}
     </>
   );
 };
