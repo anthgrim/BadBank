@@ -1,8 +1,11 @@
 import { useFormik } from "formik";
+import useUserContext from "../../hooks/useUserContext";
 import * as yup from "yup";
 import { Button, TextField, Box } from "@mui/material";
 
 const LoginPopUp = ({ handleClose }) => {
+  const { user } = useUserContext();
+
   //Validation schema
   const validationSchema = yup.object({
     email: yup.string().required("Email is required"),
@@ -16,12 +19,23 @@ const LoginPopUp = ({ handleClose }) => {
     },
 
     validationSchema: validationSchema,
-
-    onSubmit: (values) => {
-      console.log(values);
-      alert("Login Succesful");
-    },
   });
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    const targetUser = user.users.find(
+      (user) => user.email === formik.values.email
+    );
+
+    if (!targetUser) return alert("User does not exist");
+
+    //Validate password
+    if (targetUser.password !== formik.values.password)
+      return alert("Invalid credentials");
+
+    return alert("Logged In!");
+  };
 
   const cancelButtonStyles = {
     backgroundColor: "#495057",
@@ -33,7 +47,7 @@ const LoginPopUp = ({ handleClose }) => {
         <div className="box">
           <span className="">Login</span>
           <hr />
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={(e) => handleLogin(e)}>
             <Box m={2}>
               <TextField
                 className="text-box custom-input-box"
@@ -76,7 +90,7 @@ const LoginPopUp = ({ handleClose }) => {
               <Button
                 variant="contained"
                 type="submit"
-                onClick={formik.handleSubmit}
+                onClick={(e) => handleLogin(e)}
               >
                 Login
               </Button>

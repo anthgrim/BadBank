@@ -1,9 +1,15 @@
 import { useFormik } from "formik";
+import useUserContext from "../../hooks/useUserContext";
+import usersData from "../../data/user";
+
 import * as yup from "yup";
 import { ref } from "yup";
 import { Button, TextField, Box } from "@mui/material";
 
 const RegisterPopUp = ({ handleClose }) => {
+  //Users context
+  const { setUser } = useUserContext();
+
   //Registration validation schema using yup
   const validationSchema = yup.object({
     name: yup.string().required("Name is required"),
@@ -30,12 +36,28 @@ const RegisterPopUp = ({ handleClose }) => {
     },
 
     validationSchema: validationSchema,
-
-    onSubmit: (values) => {
-      console.log(values);
-      alert("Register Succesful");
-    },
   });
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const isDuplicate = usersData.find(
+      (user) => user.email === formik.values.email
+    );
+
+    if (isDuplicate) return alert("Email already exists");
+
+    const newUser = {
+      name: formik.values.name,
+      email: formik.values.email,
+      password: formik.values.password,
+    };
+
+    usersData.push(newUser);
+    setUser(usersData);
+    formik.resetForm();
+    return alert("Successful user registration");
+  };
 
   const cancelButtonStyles = {
     backgroundColor: "#495057",
@@ -47,7 +69,7 @@ const RegisterPopUp = ({ handleClose }) => {
         <div className="box">
           <span className="">Register</span>
           <hr />
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={(e) => handleRegister(e)}>
             <Box m={2}>
               <TextField
                 className="text-box custom-input-box"
@@ -123,7 +145,7 @@ const RegisterPopUp = ({ handleClose }) => {
               <Button
                 variant="contained"
                 type="submit"
-                onClick={formik.handleSubmit}
+                onClick={(e) => handleRegister(e)}
               >
                 Register
               </Button>
