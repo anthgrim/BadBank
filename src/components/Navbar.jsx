@@ -5,7 +5,7 @@ const Navbar = () => {
     <>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <Link to="/home" class="navbar-brand">
+          <Link to="/home" className="navbar-brand">
             Bad Bank
           </Link>
           <button
