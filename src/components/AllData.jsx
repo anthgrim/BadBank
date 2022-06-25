@@ -1,12 +1,7 @@
 import useUserContext from "../hooks/useUserContext";
-import { useEffect } from "react";
 
 const AllData = () => {
   const { user } = useUserContext();
-
-  useEffect(() => {
-    console.log("refresh");
-  }, [user]);
 
   return (
     <>

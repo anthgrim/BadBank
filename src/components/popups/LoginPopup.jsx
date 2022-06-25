@@ -19,23 +19,23 @@ const LoginPopUp = ({ handleClose }) => {
     },
 
     validationSchema: validationSchema,
+
+    onSubmit: () => {
+      const targetUser = user.find(
+        (user) => user.email === formik.values.email
+      );
+
+      if (!targetUser) return alert("User does not exist");
+
+      //Validate password
+      if (targetUser.password !== formik.values.password)
+        return alert("Invalid credentials");
+
+      formik.resetForm();
+      handleClose();
+      return alert("Logged In!");
+    },
   });
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    const targetUser = user.find((user) => user.email === formik.values.email);
-
-    if (!targetUser) return alert("User does not exist");
-
-    //Validate password
-    if (targetUser.password !== formik.values.password)
-      return alert("Invalid credentials");
-
-    formik.resetForm();
-    handleClose();
-    return alert("Logged In!");
-  };
 
   const cancelButtonStyles = {
     backgroundColor: "#495057",
@@ -47,7 +47,7 @@ const LoginPopUp = ({ handleClose }) => {
         <div className="box">
           <span className="">Login</span>
           <hr />
-          <form onSubmit={(e) => handleLogin(e)}>
+          <div>
             <Box m={2}>
               <TextField
                 className="text-box custom-input-box"
@@ -90,12 +90,12 @@ const LoginPopUp = ({ handleClose }) => {
               <Button
                 variant="contained"
                 type="submit"
-                onClick={(e) => handleLogin(e)}
+                onClick={formik.handleSubmit}
               >
                 Login
               </Button>
             </Box>
-          </form>
+          </div>
         </div>
       </div>
     </>

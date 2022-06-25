@@ -36,33 +36,29 @@ const RegisterPopUp = ({ handleClose }) => {
     },
 
     validationSchema: validationSchema,
+
+    onSubmit: () => {
+      const isDuplicate = usersData.find(
+        (user) => user.email === formik.values.email
+      );
+
+      if (isDuplicate) return alert("Email already exists");
+
+      const newUser = {
+        name: formik.values.name,
+        email: formik.values.email,
+        password: formik.values.password,
+        balance: 0,
+      };
+
+      usersData.push(newUser);
+
+      setUser(usersData);
+      formik.resetForm();
+      handleClose();
+      return alert("Successful user registration");
+    },
   });
-
-  const handleRegister = (e) => {
-    e.preventDefault();
-
-    const isDuplicate = usersData.find(
-      (user) => user.email === formik.values.email
-    );
-
-    if (isDuplicate) return alert("Email already exists");
-
-    const newUser = {
-      name: formik.values.name,
-      email: formik.values.email,
-      password: formik.values.password,
-      balance: 0,
-    };
-
-    usersData.push(newUser);
-
-    console.log(usersData);
-
-    setUser(usersData);
-    formik.resetForm();
-    handleClose();
-    return alert("Successful user registration");
-  };
 
   const cancelButtonStyles = {
     backgroundColor: "#495057",
@@ -74,7 +70,7 @@ const RegisterPopUp = ({ handleClose }) => {
         <div className="box">
           <span className="">Register</span>
           <hr />
-          <form onSubmit={(e) => handleRegister(e)}>
+          <div>
             <Box m={2}>
               <TextField
                 className="text-box custom-input-box"
@@ -85,7 +81,6 @@ const RegisterPopUp = ({ handleClose }) => {
                 onChange={formik.handleChange}
                 error={formik.touched.name && Boolean(formik.errors.name)}
                 helperText={formik.touched.name && formik.errors.name}
-                required
               />
             </Box>
 
@@ -99,7 +94,6 @@ const RegisterPopUp = ({ handleClose }) => {
                 onChange={formik.handleChange}
                 error={formik.touched.email && Boolean(formik.errors.email)}
                 helperText={formik.touched.email && formik.errors.email}
-                required
               />
             </Box>
 
@@ -116,7 +110,6 @@ const RegisterPopUp = ({ handleClose }) => {
                   formik.touched.password && Boolean(formik.errors.password)
                 }
                 helperText={formik.touched.password && formik.errors.password}
-                required
               />
             </Box>
 
@@ -137,7 +130,6 @@ const RegisterPopUp = ({ handleClose }) => {
                   formik.touched.confirmPassword &&
                   formik.errors.confirmPassword
                 }
-                required
               />
             </Box>
 
@@ -154,12 +146,12 @@ const RegisterPopUp = ({ handleClose }) => {
               <Button
                 variant="contained"
                 type="submit"
-                onClick={(e) => handleRegister(e)}
+                onClick={formik.handleSubmit}
               >
                 Register
               </Button>
             </Box>
-          </form>
+          </div>
         </div>
       </div>
     </>
