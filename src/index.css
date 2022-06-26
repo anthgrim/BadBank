@@ -56,3 +56,8 @@ code {
   font-size: 8px;
   color: rgb(161, 161, 161);
 }
+
+.row {
+  display: flex;
+  flex-direction: column;
+}

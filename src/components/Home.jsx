@@ -2,7 +2,7 @@ import bankImage from "../images/jason-dent-3wPJxh-piRw-unsplash.jpg";
 
 const Home = () => {
   const customStyles = {
-    width: "18rem",
+    width: "25rem",
     padding: "10px",
     zIndex: "-1",
   };
