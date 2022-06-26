@@ -26,7 +26,8 @@ const Deposit = () => {
     onSubmit: () => {
       //Verify if there's logged in user
       if (!loggedInUser) {
-        return alert("Please login to make a successful transaction");
+        toast.error("Please login to make a successful transaction");
+        return;
       }
 
       const depAmount = parseFloat(formik.values.depositAmount);
