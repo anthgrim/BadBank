@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import useUserContext from "../hooks/useUserContext";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { toast } from "react-toastify";
 
 import { Button, TextField, Box } from "@mui/material";
 const Withdraw = () => {
@@ -42,7 +43,8 @@ const Withdraw = () => {
 
       setUser(newData);
       formik.resetForm();
-      return alert(`Success`);
+      toast.success("Withdraw succesful");
+      return;
     },
   });
 

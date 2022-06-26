@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import useUserContext from "../../hooks/useUserContext";
 import usersData from "../../data/user";
+import { toast } from "react-toastify";
 
 import * as yup from "yup";
 import { ref } from "yup";
@@ -56,7 +57,8 @@ const RegisterPopUp = ({ handleClose }) => {
       setUser(usersData);
       formik.resetForm();
       handleClose();
-      return alert("Successful user registration");
+      toast.success("Successful user registration");
+      return;
     },
   });
 

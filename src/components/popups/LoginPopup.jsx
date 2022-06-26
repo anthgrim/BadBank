@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import useUserContext from "../../hooks/useUserContext";
 import * as yup from "yup";
 import { Button, TextField, Box } from "@mui/material";
+import { toast } from "react-toastify";
 
 const LoginPopUp = ({ handleClose }) => {
   const { user, setLoggedInUser } = useUserContext();
@@ -25,17 +26,23 @@ const LoginPopUp = ({ handleClose }) => {
         (user) => user.email === formik.values.email
       );
 
-      if (!targetUser) return alert("User does not exist");
+      if (!targetUser) {
+        toast.error("User does not exist");
+        return;
+      }
 
       //Validate password
-      if (targetUser.password !== formik.values.password)
-        return alert("Invalid credentials");
+      if (targetUser.password !== formik.values.password) {
+        toast.warn("Invalid credentials");
+        return;
+      }
 
       setLoggedInUser(targetUser);
 
       formik.resetForm();
       handleClose();
-      return alert("Logged In!");
+      toast.success(`Welcome, ${targetUser.name}!`);
+      return;
     },
   });
 

@@ -38,7 +38,7 @@ const AllData = () => {
             <TableRow>
               <TableCell>Name</TableCell>
               <TableCell align="right">Email</TableCell>
-              <TableCell align="right">Passwor</TableCell>
+              <TableCell align="right">Password</TableCell>
               <TableCell align="right">Balance</TableCell>
             </TableRow>
           </TableHead>

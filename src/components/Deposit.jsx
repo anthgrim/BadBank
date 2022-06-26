@@ -3,6 +3,7 @@ import useUserContext from "../hooks/useUserContext";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { Button, TextField, Box } from "@mui/material";
+import { toast } from "react-toastify";
 
 const Deposit = () => {
   const { user, setUser, loggedInUser } = useUserContext();
@@ -24,8 +25,9 @@ const Deposit = () => {
 
     onSubmit: () => {
       //Verify if there's logged in user
-      if (!loggedInUser)
+      if (!loggedInUser) {
         return alert("Please login to make a successful transaction");
+      }
 
       const depAmount = parseFloat(formik.values.depositAmount);
 
@@ -39,7 +41,8 @@ const Deposit = () => {
 
       setUser(newData);
       formik.resetForm();
-      return alert(`Success`);
+      toast.success("Deposit successful");
+      return;
     },
   });
 

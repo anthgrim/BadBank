@@ -5,6 +5,8 @@ import Home from "./components/Home";
 import Deposit from "./components/Deposit";
 import Withdraw from "./components/Withdraw";
 import AllData from "./components/AllData";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -20,6 +22,9 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      <div>
+        <ToastContainer></ToastContainer>
+      </div>
     </>
   );
 }
