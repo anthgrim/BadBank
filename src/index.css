@@ -51,3 +51,8 @@ code {
 .clickable {
   cursor: pointer;
 }
+
+.bad-policy-practice {
+  font-size: 8px;
+  color: rgb(161, 161, 161);
+}
