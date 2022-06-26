@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { Button, TextField, Box } from "@mui/material";
 
 const LoginPopUp = ({ handleClose }) => {
-  const { user } = useUserContext();
+  const { user, setLoggedInUser } = useUserContext();
 
   //Validation schema
   const validationSchema = yup.object({
@@ -30,6 +30,8 @@ const LoginPopUp = ({ handleClose }) => {
       //Validate password
       if (targetUser.password !== formik.values.password)
         return alert("Invalid credentials");
+
+      setLoggedInUser(targetUser);
 
       formik.resetForm();
       handleClose();

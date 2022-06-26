@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import useUserContext from "../hooks/useUserContext";
 
 import RegisterPopUp from "./popups/RegisterPopUp";
 import LoginPopUp from "./popups/LoginPopup";
@@ -7,13 +8,20 @@ import LoginPopUp from "./popups/LoginPopup";
 const Navbar = () => {
   const [isRegisterPopUp, setIsRegiterPopUp] = useState(false);
   const [isLoginPopUp, setIsLoginPopUp] = useState(false);
+  const { loggedInUser, setLoggedInUser } = useUserContext();
 
   const toggleRegisterPopUp = () => {
     setIsRegiterPopUp(!isRegisterPopUp);
   };
+
   const toggleLoginPopUp = () => {
     setIsLoginPopUp(!isLoginPopUp);
   };
+
+  const handleLogout = () => {
+    setLoggedInUser("");
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-light">
@@ -45,28 +53,36 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/balance" className="nav-link">
-                  Balance
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link to="/allData" className="nav-link">
                   All Data
                 </Link>
               </li>
-              <li className="nav-item">
-                <span
-                  onClick={toggleRegisterPopUp}
-                  className="nav-link clickable"
-                >
-                  Register
-                </span>
-              </li>
-              <li className="nav-item">
-                <span onClick={toggleLoginPopUp} className="nav-link clickable">
-                  Login
-                </span>
-              </li>
+              {loggedInUser ? (
+                <li className="nav-item">
+                  <span onClick={handleLogout} className="nav-link clickable">
+                    Logout
+                  </span>
+                </li>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <span
+                      onClick={toggleRegisterPopUp}
+                      className="nav-link clickable"
+                    >
+                      Register
+                    </span>
+                  </li>
+                  <li className="nav-item">
+                    <span
+                      onClick={toggleLoginPopUp}
+                      className="nav-link clickable"
+                    >
+                      Login
+                    </span>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>
