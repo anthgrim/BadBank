@@ -26,12 +26,17 @@ const Withdraw = () => {
 
     onSubmit: () => {
       //Verify if there's logged in user
-      if (!loggedInUser)
-        return alert("Please login to make a successful transaction");
+      if (!loggedInUser) {
+        toast.error("Please login to make a successful transaction");
+        return;
+      }
 
       const witAmount = parseFloat(formik.values.withdrawAmount);
 
-      if (witAmount > loggedInUser.balance) return alert("Insufficient Funds");
+      if (witAmount > loggedInUser.balance) {
+        toast.warn("Insufficient Funds");
+        return;
+      }
 
       const newData = user.map((u) => {
         if (u.email === loggedInUser.email) {

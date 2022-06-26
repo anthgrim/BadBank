@@ -43,7 +43,10 @@ const RegisterPopUp = ({ handleClose }) => {
         (user) => user.email === formik.values.email
       );
 
-      if (isDuplicate) return alert("Email already exists");
+      if (isDuplicate) {
+        toast.error("Email already in use");
+        return;
+      }
 
       const newUser = {
         name: formik.values.name,
