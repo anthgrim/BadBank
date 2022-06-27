@@ -5,6 +5,8 @@ import * as yup from "yup";
 import { Button, TextField, Box } from "@mui/material";
 import { toast } from "react-toastify";
 
+import createTransaction from "../helpers/createTransaction";
+
 const Deposit = () => {
   const { user, setUser, loggedInUser } = useUserContext();
   const [balance, setBalance] = useState();
@@ -35,6 +37,8 @@ const Deposit = () => {
       const newData = user.map((u) => {
         if (u.email === loggedInUser.email) {
           u.balance += depAmount;
+          const newTransaction = createTransaction("Deposit", depAmount);
+          u.transactionHisroty.push(newTransaction);
           setBalance(u.balance);
         }
         return u;

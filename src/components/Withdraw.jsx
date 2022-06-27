@@ -4,6 +4,8 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 
+import createTransaction from "../helpers/createTransaction";
+
 import { Button, TextField, Box } from "@mui/material";
 const Withdraw = () => {
   const { user, setUser, loggedInUser } = useUserContext();
@@ -41,6 +43,8 @@ const Withdraw = () => {
       const newData = user.map((u) => {
         if (u.email === loggedInUser.email) {
           u.balance -= witAmount;
+          const newTransaction = createTransaction("Withdraw", witAmount);
+          u.transactionHisroty.push(newTransaction);
           setBalance(u.balance);
         }
         return u;

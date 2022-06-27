@@ -53,6 +53,7 @@ const RegisterPopUp = ({ handleClose }) => {
         email: formik.values.email,
         password: formik.values.password,
         balance: 0,
+        transaction: [],
       };
 
       usersData.push(newUser);
