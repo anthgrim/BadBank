@@ -38,7 +38,7 @@ const Deposit = () => {
         if (u.email === loggedInUser.email) {
           u.balance += depAmount;
           const newTransaction = createTransaction("Deposit", depAmount);
-          u.transactionHisroty.push(newTransaction);
+          u.transactionHistory.push(newTransaction);
           setBalance(u.balance);
         }
         return u;

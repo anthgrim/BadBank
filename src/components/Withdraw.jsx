@@ -44,7 +44,7 @@ const Withdraw = () => {
         if (u.email === loggedInUser.email) {
           u.balance -= witAmount;
           const newTransaction = createTransaction("Withdraw", witAmount);
-          u.transactionHisroty.push(newTransaction);
+          u.transactionHistory.push(newTransaction);
           setBalance(u.balance);
         }
         return u;
