@@ -14,18 +14,16 @@ const Transactions = () => {
   const transactionList = loggedInUser?.transactionHistory?.map(
     (transaction, i) => {
       return (
-        <>
-          <TableRow
-            key={i}
-            sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-          >
-            <TableCell component="th" scope="row">
-              {transaction.date}
-            </TableCell>
-            <TableCell align="right">{transaction.type}</TableCell>
-            <TableCell align="right">{transaction.amount}</TableCell>
-          </TableRow>
-        </>
+        <TableRow
+          key={i}
+          sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+        >
+          <TableCell component="th" scope="row">
+            {transaction.date}
+          </TableCell>
+          <TableCell align="right">{transaction.type}</TableCell>
+          <TableCell align="right">{transaction.amount}</TableCell>
+        </TableRow>
       );
     }
   );
@@ -47,8 +45,11 @@ const Transactions = () => {
             </TableHead>
             {transactionList.length === 0 ? (
               <>
-                <br />
-                <p>No transactions to show</p>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>No Transactions to show</TableCell>
+                  </TableRow>
+                </TableBody>
               </>
             ) : (
               <TableBody>{transactionList}</TableBody>

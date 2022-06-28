@@ -1,4 +1,5 @@
 import useUserContext from "../hooks/useUserContext";
+
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -12,19 +13,17 @@ const AllData = () => {
 
   const usersList = user.map((user, i) => {
     return (
-      <>
-        <TableRow
-          key={i}
-          sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-        >
-          <TableCell component="th" scope="row">
-            {user.name}
-          </TableCell>
-          <TableCell align="right">{user.email}</TableCell>
-          <TableCell align="right">{user.password}</TableCell>
-          <TableCell align="right">${user.balance}</TableCell>
-        </TableRow>
-      </>
+      <TableRow
+        key={i}
+        sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+      >
+        <TableCell component="th" scope="row">
+          {user.name}
+        </TableCell>
+        <TableCell align="right">{user.email}</TableCell>
+        <TableCell align="right">{user.password}</TableCell>
+        <TableCell align="right">${user.balance}</TableCell>
+      </TableRow>
     );
   });
 
