@@ -25,7 +25,7 @@ code {
   position: relative;
   width: fit-content;
   margin: 0 auto;
-  height: fit-content;
+  max-height: 90vh;
   margin-top: calc(100vh - 85vh - 20px);
   background: #fff;
   border-radius: 5px;
@@ -59,7 +59,6 @@ code {
 
 .row {
   display: flex;
-  flex-direction: column;
 }
 
 .avatar-container {
@@ -71,4 +70,12 @@ code {
   height: 100px;
   border: none;
   border-radius: 50%;
+}
+
+.userInfo-container {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }

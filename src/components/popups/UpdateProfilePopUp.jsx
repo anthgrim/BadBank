@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
 import useUserContext from "../../hooks/useUserContext";
-import usersData from "../../data/user";
 import { toast } from "react-toastify";
 
 import * as yup from "yup";
@@ -12,9 +11,9 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Avatar from "../Avatar";
 
-const RegisterPopUp = ({ handleClose }) => {
+const UpdateProfilePopUp = ({ handleClose }) => {
   //Users context
-  const { setUser } = useUserContext();
+  const { loggedInUser, setLoggedInUser, user, setUser } = useUserContext();
 
   //Registration validation schema using yup
   const validationSchema = yup.object({
@@ -35,40 +34,50 @@ const RegisterPopUp = ({ handleClose }) => {
 
   const formik = useFormik({
     initialValues: {
-      userPic: "/images/Avatar0.png",
-      name: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
+      userPic: loggedInUser.userPic,
+      name: loggedInUser.name,
+      email: loggedInUser.email,
+      password: loggedInUser.password,
+      confirmPassword: loggedInUser.password,
     },
 
     validationSchema: validationSchema,
 
     onSubmit: () => {
-      const isDuplicate = usersData.find(
-        (user) => user.email === formik.values.email
-      );
+      if (loggedInUser.email !== formik.values.email) {
+        const isDuplicate = user.find(
+          (user) => user.email === formik.values.email
+        );
 
-      if (isDuplicate) {
-        toast.error("Email already in use");
-        return;
+        if (isDuplicate) {
+          toast.error("Email already in use");
+          return;
+        }
       }
 
-      const newUser = {
+      const updatedPayload = user.map((user) => {
+        if (user.email === loggedInUser.email) {
+          user.userPic = formik.values.userPic;
+          user.name = formik.values.name;
+          user.email = formik.values.email;
+          user.password = formik.values.password;
+        }
+        return user;
+      });
+
+      setUser(updatedPayload);
+
+      setLoggedInUser((prevData) => ({
+        ...prevData,
         userPic: formik.values.userPic,
         name: formik.values.name,
         email: formik.values.email,
         password: formik.values.password,
-        balance: 0,
-        transactionHistory: [],
-      };
+      }));
 
-      usersData.push(newUser);
-
-      setUser(usersData);
       formik.resetForm();
       handleClose();
-      toast.success("Successful user registration");
+      toast.success("Profile Updated!");
       return;
     },
   });
@@ -81,7 +90,7 @@ const RegisterPopUp = ({ handleClose }) => {
     <>
       <div className="popup-box">
         <div className="box">
-          <span className="">Register</span>
+          <span className="">Update User Profile</span>
           <hr />
           <div>
             <Box m={2}>
@@ -185,7 +194,7 @@ const RegisterPopUp = ({ handleClose }) => {
                 type="submit"
                 onClick={formik.handleSubmit}
               >
-                Register
+                Update
               </Button>
             </Box>
           </div>
@@ -195,4 +204,4 @@ const RegisterPopUp = ({ handleClose }) => {
   );
 };
 
-export default RegisterPopUp;
+export default UpdateProfilePopUp;

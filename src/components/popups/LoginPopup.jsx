@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 import useUserContext from "../../hooks/useUserContext";
 import * as yup from "yup";
 import { Button, TextField, Box } from "@mui/material";
@@ -6,6 +7,7 @@ import { toast } from "react-toastify";
 
 const LoginPopUp = ({ handleClose }) => {
   const { user, setLoggedInUser } = useUserContext();
+  const navigate = useNavigate();
 
   //Validation schema
   const validationSchema = yup.object({
@@ -41,6 +43,7 @@ const LoginPopUp = ({ handleClose }) => {
 
       formik.resetForm();
       handleClose();
+      navigate("/myAccount");
       toast.success(`Welcome, ${targetUser.name}!`);
       return;
     },

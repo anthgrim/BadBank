@@ -30,7 +30,7 @@ const Transactions = () => {
 
   return (
     <>
-      <h3>Transactions</h3>
+      <h5>Transactions</h5>
       {!loggedInUser ? (
         <p>Please login to your account</p>
       ) : (
