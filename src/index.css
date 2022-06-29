@@ -25,14 +25,14 @@ code {
   position: relative;
   width: fit-content;
   margin: 0 auto;
-  height: auto;
-  max-height: 70vh;
+  height: fit-content;
   margin-top: calc(100vh - 85vh - 20px);
   background: #fff;
-  border-radius: 4px;
+  border-radius: 5px;
   padding: 20px;
-  border: 1px solid #999;
+  border: none;
   overflow: auto;
+  box-shadow: 0px 5px 7px rgb(122, 122, 122);
 }
 
 .custom-input-box {
@@ -60,4 +60,15 @@ code {
 .row {
   display: flex;
   flex-direction: column;
+}
+
+.avatar-container {
+  text-align: center;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 50%;
 }

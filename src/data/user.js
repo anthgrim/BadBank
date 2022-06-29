@@ -1,5 +1,6 @@
 const users = [
   {
+    userPic: "/images/Avatar0.png",
     name: "Abel",
     email: "abel@mit.edu",
     password: "secret",

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useUserContext from "../hooks/useUserContext";
 
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isRegisterPopUp, setIsRegiterPopUp] = useState(false);
   const [isLoginPopUp, setIsLoginPopUp] = useState(false);
   const { loggedInUser, setLoggedInUser } = useUserContext();
+  const navigate = useNavigate();
 
   const toggleRegisterPopUp = () => {
     setIsRegiterPopUp(!isRegisterPopUp);
@@ -20,6 +21,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     setLoggedInUser("");
+    navigate("/");
   };
 
   return (
@@ -63,11 +65,18 @@ const Navbar = () => {
                 </Link>
               </li>
               {loggedInUser ? (
-                <li className="nav-item">
-                  <span onClick={handleLogout} className="nav-link clickable">
-                    Logout
-                  </span>
-                </li>
+                <>
+                  <li className="nav-item">
+                    <Link to="/myAccount" className="nav-link">
+                      My Account
+                    </Link>
+                  </li>
+                  <li className="nav-item">
+                    <span onClick={handleLogout} className="nav-link clickable">
+                      Logout
+                    </span>
+                  </li>
+                </>
               ) : (
                 <>
                   <li className="nav-item">

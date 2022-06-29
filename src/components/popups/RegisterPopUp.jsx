@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import * as yup from "yup";
 import { ref } from "yup";
 import { Button, TextField, Box } from "@mui/material";
+import Avatar from "../Avatar";
 
 const RegisterPopUp = ({ handleClose }) => {
   //Users context
@@ -49,6 +50,7 @@ const RegisterPopUp = ({ handleClose }) => {
       }
 
       const newUser = {
+        userPic: "/images/Avatar0.png",
         name: formik.values.name,
         email: formik.values.email,
         password: formik.values.password,
@@ -77,6 +79,9 @@ const RegisterPopUp = ({ handleClose }) => {
           <span className="">Register</span>
           <hr />
           <div>
+            <Box m={2}>
+              <Avatar image={"/images/Avatar0.png"} />
+            </Box>
             <Box m={2}>
               <TextField
                 className="text-box custom-input-box"
