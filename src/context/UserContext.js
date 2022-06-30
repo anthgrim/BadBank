@@ -1,4 +1,6 @@
 import { createContext, useState } from "react";
+
+//Sample Data
 import users from "../data/user";
 
 const UserContext = createContext({});

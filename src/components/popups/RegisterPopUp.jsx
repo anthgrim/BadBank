@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import useUserContext from "../../hooks/useUserContext";
-import usersData from "../../data/user";
 import { toast } from "react-toastify";
+import User from "../../models/userModel";
 
 import * as yup from "yup";
 import { ref } from "yup";
@@ -14,7 +14,7 @@ import Avatar from "../Avatar";
 
 const RegisterPopUp = ({ handleClose }) => {
   //Users context
-  const { setUser } = useUserContext();
+  const { user, setUser } = useUserContext();
 
   //Registration validation schema using yup
   const validationSchema = yup.object({
@@ -45,7 +45,7 @@ const RegisterPopUp = ({ handleClose }) => {
     validationSchema: validationSchema,
 
     onSubmit: () => {
-      const isDuplicate = usersData.find(
+      const isDuplicate = user.find(
         (user) => user.email === formik.values.email
       );
 
@@ -54,18 +54,16 @@ const RegisterPopUp = ({ handleClose }) => {
         return;
       }
 
-      const newUser = {
-        userPic: formik.values.userPic,
-        name: formik.values.name,
-        email: formik.values.email,
-        password: formik.values.password,
-        balance: 0,
-        transactionHistory: [],
-      };
+      //Using a custom class as a model / schema
+      const persona = new User();
+      persona.userPic = formik.values.userPic;
+      persona.name = formik.values.name;
+      persona.email = formik.values.email;
+      persona.password = formik.values.password;
+      persona.balance = 0;
+      persona.transactionHistory = [];
 
-      usersData.push(newUser);
-
-      setUser(usersData);
+      setUser((prev) => [...prev, persona]);
       formik.resetForm();
       handleClose();
       toast.success("Successful user registration");
