@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import createTransaction from "../helpers/createTransaction";
 
 const Deposit = () => {
-  const { user, setUser, loggedInUser } = useUserContext();
+  const { user, setUser, loggedInUser, setLoggedInUser } = useUserContext();
   const [balance, setBalance] = useState();
 
   const validationSchema = yup.object({
@@ -33,10 +33,11 @@ const Deposit = () => {
       }
 
       const depAmount = parseFloat(formik.values.depositAmount);
-
+      let newBalance = 0;
       const newData = user.map((u) => {
         if (u.email === loggedInUser.email) {
           u.balance += depAmount;
+          newBalance = u.balance;
           const newTransaction = createTransaction("Deposit", depAmount);
           u.transactionHistory.push(newTransaction);
           setBalance(u.balance);
@@ -45,6 +46,7 @@ const Deposit = () => {
       });
 
       setUser(newData);
+      setLoggedInUser((prev) => ({ ...prev, balance: newBalance }));
       formik.resetForm();
       toast.success("Deposit successful");
       return;

@@ -8,7 +8,7 @@ import createTransaction from "../helpers/createTransaction";
 
 import { Button, TextField, Box } from "@mui/material";
 const Withdraw = () => {
-  const { user, setUser, loggedInUser } = useUserContext();
+  const { user, setUser, loggedInUser, setLoggedInUser } = useUserContext();
   const [balance, setBalance] = useState();
 
   const validationSchema = yup.object({
@@ -40,9 +40,12 @@ const Withdraw = () => {
         return;
       }
 
+      let newBalance = 0;
+
       const newData = user.map((u) => {
         if (u.email === loggedInUser.email) {
           u.balance -= witAmount;
+          newBalance = u.balance;
           const newTransaction = createTransaction("Withdraw", witAmount);
           u.transactionHistory.push(newTransaction);
           setBalance(u.balance);
@@ -51,6 +54,7 @@ const Withdraw = () => {
       });
 
       setUser(newData);
+      setLoggedInUser((prev) => ({ ...prev, balance: newBalance }));
       formik.resetForm();
       toast.success("Withdraw succesful");
       return;
