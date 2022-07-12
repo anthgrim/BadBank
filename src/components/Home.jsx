@@ -13,8 +13,8 @@ const Home = () => {
           <img src="/images/banker.png" className="card-img-top" alt="..." />
           <div className="card-body">
             <p className="card-text">
-              Welcome! to the most secure bank there is in the virtual world. We
-              promise you that we will
+              Welcome! to the safest bank in the virtual world. We promise you
+              that we will
               <span className="bad-policy-practice">not</span> secure your data.
             </p>
           </div>

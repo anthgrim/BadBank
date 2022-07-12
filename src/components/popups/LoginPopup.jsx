@@ -57,56 +57,62 @@ const LoginPopUp = ({ handleClose }) => {
     <>
       <div className="popup-box">
         <div className="box">
-          <span className="">Login</span>
-          <hr />
-          <div>
-            <Box m={2}>
-              <TextField
-                className="text-box custom-input-box"
-                id="email"
-                name="email"
-                label="Email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
-            </Box>
+          <div className="card">
+            <div className="card-body">
+              <span className="">Login</span>
+              <hr />
+              <div>
+                <Box m={2}>
+                  <TextField
+                    className="text-box custom-input-box"
+                    id="email"
+                    name="email"
+                    label="Email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                  />
+                </Box>
 
-            <Box m={2}>
-              <TextField
-                className="text-box custom-input-box"
-                id="password"
-                name="password"
-                label="Password"
-                type="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
-              />
-            </Box>
+                <Box m={2}>
+                  <TextField
+                    className="text-box custom-input-box"
+                    id="password"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                  />
+                </Box>
 
-            <Box m={2} className="custom-btn-group">
-              <Button
-                variant="contained"
-                style={cancelButtonStyles}
-                type="submit"
-                onClick={handleClose}
-              >
-                Cancel
-              </Button>
+                <Box m={2} className="custom-btn-group">
+                  <Button
+                    variant="contained"
+                    style={cancelButtonStyles}
+                    type="submit"
+                    onClick={handleClose}
+                  >
+                    Cancel
+                  </Button>
 
-              <Button
-                variant="contained"
-                type="submit"
-                onClick={formik.handleSubmit}
-              >
-                Login
-              </Button>
-            </Box>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    onClick={formik.handleSubmit}
+                  >
+                    Login
+                  </Button>
+                </Box>
+              </div>
+            </div>
           </div>
         </div>
       </div>

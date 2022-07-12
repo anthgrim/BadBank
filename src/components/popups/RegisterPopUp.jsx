@@ -79,113 +79,119 @@ const RegisterPopUp = ({ handleClose }) => {
     <>
       <div className="popup-box">
         <div className="box">
-          <span className="">Register</span>
-          <hr />
-          <div>
-            <Box m={2}>
-              <Avatar image={formik.values.userPic} />
-            </Box>
-            <Box m={2}>
-              <FormControl className="custom-input-box">
-                <InputLabel id="userPicLabel">Avatar</InputLabel>
-                <Select
-                  labelId="userPicLabel"
-                  id="userPic"
-                  name="userPic"
-                  value={formik.values.userPic}
-                  onChange={formik.handleChange}
-                  label="Avatar"
-                >
-                  <MenuItem value="/images/Avatar0.png">Default</MenuItem>
-                  <MenuItem value="/images/Avatar1.png">Female 1</MenuItem>
-                  <MenuItem value="/images/Avatar5.png">Female 2</MenuItem>
-                  <MenuItem value="/images/Avatar6.png">Female 3</MenuItem>
-                  <MenuItem value="/images/Avatar2.png">Male 1</MenuItem>
-                  <MenuItem value="/images/Avatar4.png">Male 2</MenuItem>
-                  <MenuItem value="/images/Avatar3.png">Male 3</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Box m={2}>
-              <TextField
-                className="text-box custom-input-box"
-                id="name"
-                name="name"
-                label="Name"
-                value={formik.values.name}
-                onChange={formik.handleChange}
-                error={formik.touched.name && Boolean(formik.errors.name)}
-                helperText={formik.touched.name && formik.errors.name}
-              />
-            </Box>
+          <div className="card">
+            <div className="card-body">
+              <h5 className="card-title">Register</h5>
+              <hr />
+              <div>
+                <Box m={2}>
+                  <Avatar image={formik.values.userPic} />
+                </Box>
+                <Box m={2}>
+                  <FormControl className="custom-input-box">
+                    <InputLabel id="userPicLabel">Avatar</InputLabel>
+                    <Select
+                      labelId="userPicLabel"
+                      id="userPic"
+                      name="userPic"
+                      value={formik.values.userPic}
+                      onChange={formik.handleChange}
+                      label="Avatar"
+                    >
+                      <MenuItem value="/images/Avatar0.png">Default</MenuItem>
+                      <MenuItem value="/images/Avatar1.png">Female 1</MenuItem>
+                      <MenuItem value="/images/Avatar5.png">Female 2</MenuItem>
+                      <MenuItem value="/images/Avatar6.png">Female 3</MenuItem>
+                      <MenuItem value="/images/Avatar2.png">Male 1</MenuItem>
+                      <MenuItem value="/images/Avatar4.png">Male 2</MenuItem>
+                      <MenuItem value="/images/Avatar3.png">Male 3</MenuItem>
+                    </Select>
+                  </FormControl>
+                </Box>
+                <Box m={2}>
+                  <TextField
+                    className="text-box custom-input-box"
+                    id="name"
+                    name="name"
+                    label="Name"
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
+                  />
+                </Box>
 
-            <Box m={2}>
-              <TextField
-                className="text-box custom-input-box"
-                id="email"
-                name="email"
-                label="Email"
-                value={formik.values.email}
-                onChange={formik.handleChange}
-                error={formik.touched.email && Boolean(formik.errors.email)}
-                helperText={formik.touched.email && formik.errors.email}
-              />
-            </Box>
+                <Box m={2}>
+                  <TextField
+                    className="text-box custom-input-box"
+                    id="email"
+                    name="email"
+                    label="Email"
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
+                  />
+                </Box>
 
-            <Box m={2}>
-              <TextField
-                className="text-box custom-input-box"
-                id="password"
-                name="password"
-                label="Password"
-                type="password"
-                value={formik.values.password}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.password && Boolean(formik.errors.password)
-                }
-                helperText={formik.touched.password && formik.errors.password}
-              />
-            </Box>
+                <Box m={2}>
+                  <TextField
+                    className="text-box custom-input-box"
+                    id="password"
+                    name="password"
+                    label="Password"
+                    type="password"
+                    value={formik.values.password}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.password && Boolean(formik.errors.password)
+                    }
+                    helperText={
+                      formik.touched.password && formik.errors.password
+                    }
+                  />
+                </Box>
 
-            <Box m={2}>
-              <TextField
-                className="text-box custom-input-box"
-                id="confirmPassword"
-                name="confirmPassword"
-                label="Confirm Password"
-                type="password"
-                value={formik.values.confirmPassword}
-                onChange={formik.handleChange}
-                error={
-                  formik.touched.confirmPassword &&
-                  Boolean(formik.errors.confirmPassword)
-                }
-                helperText={
-                  formik.touched.confirmPassword &&
-                  formik.errors.confirmPassword
-                }
-              />
-            </Box>
+                <Box m={2}>
+                  <TextField
+                    className="text-box custom-input-box"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    label="Confirm Password"
+                    type="password"
+                    value={formik.values.confirmPassword}
+                    onChange={formik.handleChange}
+                    error={
+                      formik.touched.confirmPassword &&
+                      Boolean(formik.errors.confirmPassword)
+                    }
+                    helperText={
+                      formik.touched.confirmPassword &&
+                      formik.errors.confirmPassword
+                    }
+                  />
+                </Box>
 
-            <Box m={2} className="custom-btn-group">
-              <Button
-                variant="contained"
-                style={cancelButtonStyles}
-                type="submit"
-                onClick={handleClose}
-              >
-                Cancel
-              </Button>
+                <Box m={2} className="custom-btn-group">
+                  <Button
+                    variant="contained"
+                    style={cancelButtonStyles}
+                    type="submit"
+                    onClick={handleClose}
+                  >
+                    Cancel
+                  </Button>
 
-              <Button
-                variant="contained"
-                type="submit"
-                onClick={formik.handleSubmit}
-              >
-                Register
-              </Button>
-            </Box>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    onClick={formik.handleSubmit}
+                  >
+                    Register
+                  </Button>
+                </Box>
+              </div>
+            </div>
           </div>
         </div>
       </div>
