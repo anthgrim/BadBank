@@ -15,7 +15,8 @@ const Deposit = () => {
     depositAmount: yup
       .number()
       .min(1, "Must be greater or equal than $1")
-      .required("Deposit Amount is required"),
+      .required("Deposit Amount is required")
+      .typeError("The deposit amount must be a number"),
   });
 
   const formik = useFormik({
@@ -66,15 +67,19 @@ const Deposit = () => {
 
   return (
     <>
-      <h3>Deposit</h3>
       {!loggedInUser ? (
-        <p>Please login to your account</p>
+        <>
+          <h3>Deposit</h3>
+          <p>Please login to your account</p>
+        </>
       ) : (
         <div className="card" style={customStyles}>
           <div className="card-body">
             <div className="row">
-              <h5 className="card-title">Balance</h5>
-              <span>${balance}</span>
+              <h4>Deposit</h4>
+              <h5 className="card-title">
+                Balance <span>${balance}</span>
+              </h5>
             </div>
             <div>
               <Box m={2}>

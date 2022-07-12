@@ -36,7 +36,7 @@ const Home = () => {
             application using AWS S3 Buckets.
           </p>
           <h5>Author: Kevin Grimaldi</h5>
-          <h7>Student</h7>
+          <h6>Student</h6>
           <h6>
             <a href="https://github.com/anthgrim/BadBank">GitHub Repo</a>
           </h6>
