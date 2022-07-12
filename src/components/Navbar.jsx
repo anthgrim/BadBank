@@ -79,7 +79,7 @@ const Navbar = () => {
                       onClick={toggleRegisterPopUp}
                       className="nav-link clickable"
                     >
-                      Register
+                      Create Account
                     </span>
                   </li>
                   <li className="nav-item">
