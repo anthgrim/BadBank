@@ -53,7 +53,7 @@ const AboutPopUp = ({ handleClose }) => {
                       </div>
                     </p>
                     <h5>
-                      Author: Kevin Grimaldi <h6>Student</h6>
+                      Kevin Grimaldi <h6>MIT Student</h6>
                     </h5>
 
                     <h6>
