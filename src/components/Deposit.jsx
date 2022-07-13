@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import createTransaction from "../helpers/createTransaction";
 
 const Deposit = () => {
+  const [isDisabled, setIsDisabled] = useState(true);
   const { user, setUser, loggedInUser, setLoggedInUser } = useUserContext();
   const [balance, setBalance] = useState();
 
@@ -61,6 +62,17 @@ const Deposit = () => {
     }
   }, [loggedInUser]);
 
+  //Listen for formik values changes
+  useEffect(() => {
+    const { depositAmount } = formik.values;
+
+    if (depositAmount.trim().length > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [formik.values]);
+
   const customStyles = {
     width: "fit-content",
   };
@@ -100,7 +112,11 @@ const Deposit = () => {
                 />
               </Box>
               <Box m={2}>
-                <Button variant="contained" onClick={formik.handleSubmit}>
+                <Button
+                  variant="contained"
+                  onClick={formik.handleSubmit}
+                  disabled={isDisabled}
+                >
                   Deposit
                 </Button>
               </Box>

@@ -24,7 +24,7 @@ const UpdateProfilePopUp = ({ handleClose }) => {
       .required("Email is required"),
     password: yup
       .string()
-      .min(5, "Password should be at least 5 chars long")
+      .min(8, "Password should be at least 8 characters long")
       .required("Password is required"),
     confirmPassword: yup
       .string()

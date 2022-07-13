@@ -28,7 +28,7 @@ const RegisterPopUp = ({ handleClose }) => {
       .required("Email is required"),
     password: yup
       .string()
-      .min(8, "Password should be at least 5 chars long")
+      .min(8, "Password should be at least 8 characters long")
       .required("Password is required"),
     confirmPassword: yup
       .string()
@@ -76,22 +76,18 @@ const RegisterPopUp = ({ handleClose }) => {
 
   //Listen for Form inputs
   useEffect(() => {
-    const isFormValid = () => {
-      const { name, email, password, confirmPassword } = formik.values;
+    const { name, email, password, confirmPassword } = formik.values;
 
-      if (
-        name.trim().length > 0 &&
-        email.trim().length > 0 &&
-        password.trim().length > 0 &&
-        confirmPassword.trim().length > 0
-      ) {
-        setIsDisabled(false);
-      } else {
-        setIsDisabled(true);
-      }
-    };
-
-    isFormValid();
+    if (
+      name.trim().length > 0 &&
+      email.trim().length > 0 &&
+      password.trim().length > 0 &&
+      confirmPassword.trim().length > 0
+    ) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
   }, [formik.values]);
 
   const handleClosePopUp = () => {

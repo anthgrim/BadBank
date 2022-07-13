@@ -8,6 +8,7 @@ import createTransaction from "../helpers/createTransaction";
 
 import { Button, TextField, Box } from "@mui/material";
 const Withdraw = () => {
+  const [isDisabled, setIsDisabled] = useState(true);
   const { user, setUser, loggedInUser, setLoggedInUser } = useUserContext();
   const [balance, setBalance] = useState();
 
@@ -69,6 +70,17 @@ const Withdraw = () => {
     }
   }, [loggedInUser]);
 
+  //Listen for formik values changes
+  useEffect(() => {
+    const { withdrawAmount } = formik.values;
+
+    if (withdrawAmount.trim().length > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [formik.values]);
+
   const customStyles = {
     width: "fit-content",
   };
@@ -108,7 +120,11 @@ const Withdraw = () => {
                 />
               </Box>
               <Box m={2}>
-                <Button variant="contained" onClick={formik.handleSubmit}>
+                <Button
+                  variant="contained"
+                  onClick={formik.handleSubmit}
+                  disabled={isDisabled}
+                >
                   Withdraw
                 </Button>
               </Box>
