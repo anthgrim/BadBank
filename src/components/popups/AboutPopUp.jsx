@@ -22,7 +22,7 @@ const AboutPopUp = ({ handleClose }) => {
                       the UI (intentionally).
                       <br /> <br />
                       It consists of a simple React application where the
-                      student apply concepts such as hooks, context, routing,
+                      students apply concepts such as hooks, context, routing,
                       and form validations. As well, for the first attempt from
                       the students to deploy a React application using AWS S3
                       Buckets.
