@@ -1,4 +1,13 @@
+import { useState } from "react";
+import AboutPopUp from "./popups/AboutPopUp";
+
 const Home = () => {
+  const [isAboutPopUp, setIsAboutPopUp] = useState(false);
+
+  const toggleAboutPopUp = () => {
+    setIsAboutPopUp(!isAboutPopUp);
+  };
+
   const customStyles = {
     width: "25rem",
     padding: "10px",
@@ -19,29 +28,13 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <hr />
-        <div>
-          <h2>What is Bad Bank?</h2>
-          <p>
-            Bad Bank is the Capstone Project for Module 2 in the{" "}
-            <a href="https://executive-ed.xpro.mit.edu/professional-certificate-coding?utm_source=Google&utm_network=g&utm_medium=c&utm_term=mit%20full%20stack%20developer&utm_location=9011929&utm_campaign_id=17059210457&utm_adset_id=135511781189&utm_ad_id=594862351424">
-              MIT - Fullstack Development with MERN
-            </a>
-            . It is called Bad Bank due to the user data exposured in the UI
-            (intentionally).
-            <br />
-            It consists of a simple React application where the student apply
-            conceps like hooks, context, routing, and form validations. As well,
-            for the first attempt from the students to deploy a React
-            application using AWS S3 Buckets.
-          </p>
-          <h5>Author: Kevin Grimaldi</h5>
-          <h6>Student</h6>
-          <h6>
-            <a href="https://github.com/anthgrim/BadBank">GitHub Repo</a>
-          </h6>
-        </div>
       </div>
+      <br />
+      <hr />
+      <button onClick={toggleAboutPopUp} className="btn btn-primary">
+        Learn About this project
+      </button>
+      {isAboutPopUp && <AboutPopUp handleClose={toggleAboutPopUp} />}
     </>
   );
 };

@@ -21,7 +21,9 @@ const UserAccount = () => {
         <h5>{loggedInUser.name}</h5>
         <h6>Current Balance</h6>
         <h6>${loggedInUser.balance}</h6>
-        <Button onClick={toggleUpdate}>Edit Profile Info</Button>
+        <Button style={{ position: "static" }} onClick={toggleUpdate}>
+          Edit Profile Info
+        </Button>
       </div>
       <Transactions />
       {isUpdatePopUpOpen && <UpdateProfilePopUp handleClose={toggleUpdate} />}
