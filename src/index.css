@@ -13,6 +13,11 @@ code {
     monospace;
 }
 
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .card-container {
   text-align: center;
   display: flex;
@@ -54,7 +59,7 @@ code {
   width: fit-content;
   margin: 0 auto;
   max-height: 90vh;
-  margin-top: calc(100vh - 85vh - 20px);
+  margin-top: calc(95vh - 85vh - 20px);
   background: transparent;
   border-radius: 5px;
   padding: 20px;

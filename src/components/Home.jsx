@@ -30,10 +30,12 @@ const Home = () => {
         </div>
       </div>
       <br />
-      <hr />
-      <button onClick={toggleAboutPopUp} className="btn btn-primary">
-        Learn About Bad Bank
-      </button>
+      <div className="card-container">
+        <button onClick={toggleAboutPopUp} className="btn btn-primary">
+          Learn About Bad Bank
+        </button>
+      </div>
+
       {isAboutPopUp && <AboutPopUp handleClose={toggleAboutPopUp} />}
     </>
   );

@@ -27,15 +27,30 @@ const AboutPopUp = ({ handleClose }) => {
                       the students to deploy a React application using AWS S3
                       Buckets.
                       <br /> <br />
-                      List of technologies and libraries used in this project:
-                      <ul>
-                        <li>React JS</li>
-                        <li>Formik</li>
-                        <li>Yup Schema Validation</li>
-                        <li>React Toastify</li>
-                        <li>Material UI</li>
-                        <li>Bootstrap</li>
-                      </ul>
+                      <div className="features">
+                        <div>
+                          List of technologies and libraries used:
+                          <ul>
+                            <li>React JS</li>
+                            <li>Formik</li>
+                            <li>Yup Schema Validation</li>
+                            <li>React Toastify</li>
+                            <li>Material UI</li>
+                            <li>Bootstrap</li>
+                          </ul>
+                        </div>
+                        <div>
+                          Functionalities available:
+                          <ul>
+                            <li>Create Account</li>
+                            <li>Login to Account</li>
+                            <li>Edit Account</li>
+                            <li>Transactions List</li>
+                            <li>Deposit</li>
+                            <li>Withdraw</li>
+                          </ul>
+                        </div>
+                      </div>
                     </p>
                     <h5>
                       Author: Kevin Grimaldi <h6>Student</h6>
