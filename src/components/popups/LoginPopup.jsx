@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 import useUserContext from "../../hooks/useUserContext";
@@ -6,6 +7,7 @@ import { Button, TextField, Box } from "@mui/material";
 import { toast } from "react-toastify";
 
 const LoginPopUp = ({ handleClose }) => {
+  const [isDissabled, setIsDisabled] = useState(true);
   const { user, setLoggedInUser } = useUserContext();
   const navigate = useNavigate();
 
@@ -48,6 +50,17 @@ const LoginPopUp = ({ handleClose }) => {
       return;
     },
   });
+
+  //Listen for formik values changes
+  useEffect(() => {
+    const { email, password } = formik.values;
+
+    if (email.trim().length > 0 && password.trim().length > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [formik.values]);
 
   const cancelButtonStyles = {
     backgroundColor: "#495057",
@@ -107,6 +120,7 @@ const LoginPopUp = ({ handleClose }) => {
                     variant="contained"
                     type="submit"
                     onClick={formik.handleSubmit}
+                    disabled={isDissabled}
                   >
                     Login
                   </Button>

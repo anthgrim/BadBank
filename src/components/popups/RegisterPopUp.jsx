@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import useUserContext from "../../hooks/useUserContext";
 import { toast } from "react-toastify";
@@ -16,6 +16,7 @@ import Avatar from "../Avatar";
 const RegisterPopUp = ({ handleClose }) => {
   //Users context
   const { user, setUser } = useUserContext();
+  const [isDisabled, setIsDisabled] = useState(true);
   const [otherAccount, setOtherAccount] = useState(false);
 
   //Registration validation schema using yup
@@ -72,6 +73,26 @@ const RegisterPopUp = ({ handleClose }) => {
       return;
     },
   });
+
+  //Listen for Form inputs
+  useEffect(() => {
+    const isFormValid = () => {
+      const { name, email, password, confirmPassword } = formik.values;
+
+      if (
+        name.trim().length > 0 &&
+        email.trim().length > 0 &&
+        password.trim().length > 0 &&
+        confirmPassword.trim().length > 0
+      ) {
+        setIsDisabled(false);
+      } else {
+        setIsDisabled(true);
+      }
+    };
+
+    isFormValid();
+  }, [formik.values]);
 
   const handleClosePopUp = () => {
     handleClose();
@@ -231,6 +252,7 @@ const RegisterPopUp = ({ handleClose }) => {
                       variant="contained"
                       type="submit"
                       onClick={formik.handleSubmit}
+                      disabled={isDisabled}
                     >
                       Register
                     </Button>
