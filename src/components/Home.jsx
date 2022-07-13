@@ -32,7 +32,7 @@ const Home = () => {
       <br />
       <hr />
       <button onClick={toggleAboutPopUp} className="btn btn-primary">
-        Learn About this project
+        Learn About Bad Bank
       </button>
       {isAboutPopUp && <AboutPopUp handleClose={toggleAboutPopUp} />}
     </>
