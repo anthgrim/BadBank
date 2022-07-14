@@ -34,7 +34,7 @@ Simply download the zip folder with the source code file, or fork it into your g
 - Withdraw
 - Totals Charts
 
-Link to AWS Deployment: **[Bad Bank](http://kevingrimaldibankingapp.s3-website-us-east-1.amazonaws.com/)**
+Link to AWS Deployment: **[Bad Bank](http://kevin-grimaldibankingapplication.s3-website-us-east-1.amazonaws.com/)**
 
 ### Future Adds
 
