@@ -22,6 +22,7 @@ Simply download the zip folder with the source code file, or fork it into your g
 - React Toastify
 - Material UI
 - Bootstrap
+- ChartJS
 
 ### Functionalities available:
 

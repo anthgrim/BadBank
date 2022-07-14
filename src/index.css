@@ -1,4 +1,6 @@
 body {
+  background-image: url("../public/images/background2.jpg");
+  background-size: cover;
   color: #253237;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -31,17 +33,31 @@ code {
   box-shadow: 0px 5px 7px #25323762;
 }
 
+.navbar {
+  background-color: #f8f9fa;
+  box-shadow: 0 3px 8px #25323762;
+}
+
 .nav-link:hover {
+  color: #212529;
+}
+
+.btn {
   color: white;
+  background-color: #212529;
+}
+
+.btn-primary {
+  border-color: #212529;
 }
 
 .nav-item:hover {
-  background-color: #177e89;
+  background-color: #8d99ae6c;
   border-radius: 3px;
 }
 
 .card-title {
-  color: #177e89;
+  color: #212529;
   font-size: 35px;
 }
 
@@ -110,6 +126,23 @@ code {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+.custom-table {
+  height: 329px;
+}
+
+.report-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.chart-container {
+  background-color: white;
+  border-radius: 5px;
+  width: 650px;
+  margin-top: 30px;
+  padding: 5px;
 }
 
 ::-webkit-scrollbar {

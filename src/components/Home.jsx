@@ -19,7 +19,7 @@ const Home = () => {
       <div className="card-container">
         <div className="card" style={customStyles}>
           <h5 className="card-title">Bad Bank</h5>
-          <img src="/images/banker.png" className="card-img-top" alt="..." />
+          <img src="/images/money.jpg" className="card-img-top" alt="..." />
           <div className="card-body">
             <p className="card-text">
               Welcome! to the safest bank in the virtual world. We promise you

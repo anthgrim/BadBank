@@ -37,6 +37,7 @@ const AboutPopUp = ({ handleClose }) => {
                             <li>React Toastify</li>
                             <li>Material UI</li>
                             <li>Bootstrap</li>
+                            <li>ChartJS</li>
                           </ul>
                         </div>
                         <div>

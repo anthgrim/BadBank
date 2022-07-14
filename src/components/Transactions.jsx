@@ -30,12 +30,11 @@ const Transactions = () => {
 
   return (
     <>
-      <h5>Transactions</h5>
       {!loggedInUser ? (
         <p>Please login to your account</p>
       ) : (
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableContainer component={Paper} className="custom-table">
+          <Table sx={{ minWidth: 500 }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>Date</TableCell>
