@@ -17,7 +17,7 @@ const UserAccount = () => {
   const totalWithdraws = getTotal("Withdraw", loggedInUser.transactionHistory);
 
   const [transactionData, setTransactionData] = useState({
-    labels: ["Total Deposits", "Total Withdraws"],
+    labels: ["Total Amount Deposits", "Total Amount Withdraws"],
     datasets: [
       {
         label: "Total",

@@ -49,6 +49,7 @@ const AboutPopUp = ({ handleClose }) => {
                             <li>Transactions List</li>
                             <li>Deposit</li>
                             <li>Withdraw</li>
+                            <li>Totals Charts</li>
                           </ul>
                         </div>
                       </div>
