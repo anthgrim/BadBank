@@ -10,7 +10,7 @@ This is the Bad Bank is the Capstone Project for Module 2 in the MIT - Fullstack
 
 It consists of a simple React application where the students apply concepts such as hooks, context, routing, and form validations. As well, for the first attempt from the students to deploy a React application using AWS S3 Buckets.
 
-This project was forked from Grimaldi https://github.com/anthgrim/BadBank I am having a very tough time with NPM in my visual studio. 
+This project was forked from Grimaldi https://github.com/anthgrim/BadBank I am having a very tough time with NPM errors on everything in my visual studio. 
 
 ### How to Run
 
