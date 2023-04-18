@@ -1,33 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="ashlingstruve/Documents/GitHub/CAshBank/public/CASHBank.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!-- CSS only -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
-    />
-    <title>MIT Bad Bank</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>Routing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- we will put our teact component inside this div -->
     <div id="root"></div>
-    <!-- JavaScript Bundle with Popper -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
+
+    <!-- load react -->
+    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
+
+    <!-- Load React component-->
+    <script src="home.js"           defer type="text/babel"></script>
+    <script src="about.js"          defer type="text/babel"></script>
+    <script src="products.js"       defer type="text/babel"></script>
+    <script src="navbar.js"         defer type="text/babel"></script>
+    <script src="index.js"          defer type="text/babel"></script>
+    <script src="context.js"        defer type="text/babel"></script>
+    <script src="createaccount.js"  defer type="text/babel"></script>
+    <script src="login.js"          defer type="text/babel"></script>
+    <script src="deposit.js"        defer type="text/babel"></script>
+    <script src="withdraw.js"       defer type="text/babel"></script>
+    <script src="balance.js"        defer type="text/babel"></script>
+    <script src="alldata.js"        defer type="text/babel"></script>
+
+
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    
+     <!-- JQuery Lib -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+     <!-- transpiler -->
+     <script src="https://unpkg.com/@babelstandalone/babel.min.js"></script>
+    
+      <!-- javaScript Bundle with Popper -->   
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+      <!-- Load React component inside this div-->
+      <div id="root"></div>
+    
+       <!-- Load React & Router-->
+       <script src="http://unpkg.com/react/umd/react.development.js"
+       crossorigin></script>
+       <script src="http://unpkg.com/react-dom/umd/react-dom.development.js"
+       crossorigin></script>
+       <script src="http://unpkg.com/react-router/umd/react-router.min.js"
+       crossorigin></script>
+       <script src="http://unpkg.com/react-router-dom/@5.2.1/umd/react-router-dom.min.js"
+       crossorigin></script>
+  
+    
+      <script>var Alert = ReactBootstrap.Alert;</script>
+
+    </head>
+    <body>
+      <title>C-Ash Bank</title>
+      <!-- favicon -->
+    
+      <!-- NAV Image and text color: feeaf4 -->
+      <nav class="navbar navbar-light" style="background-color: #feeaf4;">
+    
+      <!-- Navbar content -->
+          <a class="navbar-brand" href="C-ASHBank.png">C-ASH Bank</a>      
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bank" viewBox="0 0 16 16">
+            <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
+          </svg>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+              <a class="nav-link" href="home.js" title="Home is where the heart is!">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="createaccount.js" title="Sign me up, I want to be BAAAD">Create Account</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="deposit.js" title="TAKE MY MONEY!!! jk jk">Deposit</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="withdraw.js" title="Show me the Money!">Withdraw</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="alldata.js" title="Gimme all the DEETS">All Data</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    </head>
+    <p style="background-image: url('background.jpg');"></p>
+    <body>
+    
+    <!-- Header -->
+    <div class="jumbotron text-center">
+    </div>
+     
+    <!-- Card -->
+    <div class="container" centered>
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="C-ASHBank.png" alt="C-ASHBank logo"
+          width="300" 
+         height="300"/>
+     
+      <div class="card-body">
+        <h5 class="card-title">Welcome to C-Ash Bank</h5>
+        <p class="card-text">A really fake bank project, "see Ash bank" built in React for MIT xPro.</p>
+        <a href="https://executive-ed.xpro.mit.edu/professional-certificate-coding-womens-cohort?advocate_source=ribbon&coupon=ASHLI%3A2-8H3CFGB&utm_campaign=incentivized_referrals&utm_content=SO+-+MIT+xPRO+-+Prof+Certificate+in+Coding%3A+Women&utm_medium=personal_url&utm_placement=ribbon&utm_source=referral&utm_term=6bOSqPhp%2BB%2F7D%2BlAbD5JPP81Ev6tOvKgS4s6VtCL0LQ7rZBCcJJEICRm7dwxyC8K3PxVjyuH2ec6ahfT5OxfjWxqNq6SmqbAO6ocwiYu9%2FBY87%2FlUKwBAurdJRDrIRjl0lpYkX6V--mf2sudoT8PjEw32i--M3HTLvXEKrtxoqFEsFUWrw%3D%3D#referrals-email-capture-modal" class="btn btn-primary">An MIT xPro project</a>
+      </div>
+    </div>
+    </div>
+    <br>
+
+    <!-- Contact -->
+    <div class="container">
+    <address>
+      <strong>Ashling Struve</strong><br>
+       Lake Bluff, IL<br>
+      <abbr title="Phone">P:</abbr> (224)500-9271
+      <br>
+        <a href="mailto:#">AshlingStruve85@gmail.com</a>
+      </address>
+    </div>
   </body>
 </html>
