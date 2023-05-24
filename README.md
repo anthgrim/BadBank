@@ -6,7 +6,7 @@
 
 ### Description:
 
-This is the Bad Bank is the Capstone Project for Module 2 in the MIT - Fullstack Development with MERN. It is called Bad Bank due to the users data exposured in the UI (intentionally). I changed the name, as I can't resist a pun, to C-Ash Bank, since I am Ash and it looks like Cash... but it's not!
+This is the Bad Bank is the Capstone Project for the MIT - Fullstack Development MERN. It is called Bad Bank due to the users data exposured in the UI (intentionally). I changed the name, as I can't resist a pun, to C-Ash Bank, since I am Ash and it looks like Cash... but it's not!
 
 It consists of a simple React application where the students apply concepts such as hooks, context, routing, and form validations. As well, for the first attempt from the students to deploy a React application using AWS S3 Buckets.
 
