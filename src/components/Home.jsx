@@ -19,7 +19,7 @@ const Home = () => {
       <div className="card-container">
         <div className="card" style={customStyles}>
           <h5 className="card-title">C-Ash Bad Bank</h5>
-          <img src="/public/images/C-ASHBank.jpg" className="card-img-top" alt="C-Ash Bad Bank Logo" />
+          <img src="/public/images/cashbank.jpg" className="card-img-top" alt="Logo" />
           <div className="card-body">
             <p className="card-text">
               Welcome to C-Ash bank,  this is not the place to stash your cash but there are some fun things to click on!
