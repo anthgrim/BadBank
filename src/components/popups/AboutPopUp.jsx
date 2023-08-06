@@ -55,12 +55,12 @@ const AboutPopUp = ({ handleClose }) => {
                       </div>
                     </p>
                     <h5>
-                      Kevin Grimaldi <h6>MIT Student</h6>
+                      Ashling Struve <h6>MIT xpro Women's Cohort Student</h6>
                     </h5>
 
                     <h6>
                       <a href="https://github.com/anthgrim/BadBank">
-                        GitHub Repo
+                         Forked from GitHub Repo
                       </a>
                     </h6>
                   </div>
