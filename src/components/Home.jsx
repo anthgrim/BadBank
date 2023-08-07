@@ -15,16 +15,15 @@ const Home = () => {
   };
 
   return (
+    
     <>
       <div className="card-container">
         <div className="card" style={customStyles}>
-          <h5 className="card-title">Bad Bank</h5>
-          <img src="/images/money.jpg" className="card-img-top" alt="..." />
+          <h5 className="card-title">C-Ash Bad Bank</h5>
+          <img src="images/cashbank.jpg" className="card-img-top" alt="logo" />
           <div className="card-body">
             <p className="card-text">
-              Welcome! to the safest bank in the virtual world. We promise you
-              that we will
-              <span className="bad-policy-practice">not</span> secure your data.
+              Welcome to C-Ash bank,  this is not the place to stash your cash but there are some fun things to click on!
             </p>
           </div>
         </div>
