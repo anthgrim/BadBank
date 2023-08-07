@@ -15,11 +15,12 @@ const Home = () => {
   };
 
   return (
+    
     <>
       <div className="card-container">
         <div className="card" style={customStyles}>
           <h5 className="card-title">C-Ash Bad Bank</h5>
-          <img src="/public/images/cashbank.jpg" className="card-img-top" alt="Logo" />
+          <img src="images/cashbank.jpg" className="card-img-top" alt="logo" />
           <div className="card-body">
             <p className="card-text">
               Welcome to C-Ash bank,  this is not the place to stash your cash but there are some fun things to click on!
@@ -32,7 +33,7 @@ const Home = () => {
         <button onClick={toggleAboutPopUp} className="btn btn-primary">
           Learn About Bad Bank
         </button>
-</div>
+      </div>
 
       {isAboutPopUp && <AboutPopUp handleClose={toggleAboutPopUp} />}
     </>
